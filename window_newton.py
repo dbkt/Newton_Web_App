@@ -21,7 +21,7 @@ col = st.columns(3)
 
 # Inputs from user
 with col[0]:
-    input_function = st.text_input("Enter a function (dependant from x):", value="x^2 - 2x - 2 + cos(x)")
+    input_function = st.text_input("Enter a function (dependent from x):", value="x^2 - 2x - 2 + cos(x)")
     create_space()
     input_h = st.number_input("Enter a step wide h:", value=0.000001)
     create_space()
@@ -48,13 +48,13 @@ col2 = st.columns(5)
 
 # define buttons and put them into the window in the correct format
 with col2[0]:
-    button_calc = st.button("Calculate")
+    button_calc = st.button("Calculate", width=250)
 
 with col2[1]:
-    button_plot = st.button("Plot")
+    button_plot = st.button("Plot", width=250)
 
 with col2[2]:
-    button_reset = st.button("Reset")
+    button_reset = st.button("Reset", width=250)
 
 
 def updated_function(input_function):
