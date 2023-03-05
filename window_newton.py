@@ -1,5 +1,6 @@
 import streamlit as st
 import numpy as np
+from numpy import *
 import time
 
 from button_plot import plot_settings_root, plot_settings_axis, plot_settings_common
@@ -28,13 +29,13 @@ with col[0]:
 with col[1]:
     input_max_iter = st.number_input("Enter a maximal count of iterations", min_value=1, value=20)
     create_space()
-    input_x0 = st.number_input("Enter start value for x", value=1.0)
+    input_x0 = st.number_input("Enter start value for x", value=1.0, step=0.1)
     create_space()
 
 with col[2]:
     input_d = st.number_input("Enter value for max error", value=0.000001)
     create_space()
-    input_sec = st.number_input("Enter speed of Plot", value=0.3)
+    input_sec = st.number_input("Enter speed of Plot", value=0.3, step=0.1)
     create_space()
 
 
@@ -56,8 +57,28 @@ with col2[2]:
     button_reset = st.button("Reset")
 
 
+def updated_function(input_function):
+    # if ^ was entered insteaed of **:
+    if "^" in input_function:
+        input_function = input_function.replace("^", "**")
+
+    # create new input_function variable based on user input
+    # if "*" was missing like 2x instead of 2*x, "*" is inserted with the following commands:
+    input_function_new = ""
+    for i, element in enumerate(input_function):
+        if i == 0:
+            input_function_new += element
+        elif (element != "x") | ((element == "x") & (element_1 == "*")) | ((element == "x") & (element_1 == "(")):
+            input_function_new += element
+        elif (element == "x") & (element_1 != "*"):
+            input_function_new += "*x"
+        element_1 = element
+
+    return input_function_new
+
+
 def function(x):
-    return eval(input_function)
+    return eval(updated_function(input_function))
 
 
 st.write("")
