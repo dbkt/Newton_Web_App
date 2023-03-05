@@ -48,13 +48,13 @@ col2 = st.columns(5)
 
 # define buttons and put them into the window in the correct format
 with col2[0]:
-    button_calc = st.button("Calculate", width=250)
+    button_calc = st.button("Calculate")
 
 with col2[1]:
-    button_plot = st.button("Plot", width=250)
+    button_plot = st.button("Plot")
 
 with col2[2]:
-    button_reset = st.button("Reset", width=250)
+    button_reset = st.button("Reset")
 
 
 def updated_function(input_function):
