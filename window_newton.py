@@ -21,7 +21,7 @@ col = st.columns(3)
 
 # Inputs from user
 with col[0]:
-    input_function = st.text_input("Enter a function (dependant from x):", value="np.log(x)**2-1")
+    input_function = st.text_input("Enter a function (dependant from x):", value="x^2 - 2x - 2 + cos(x)")
     create_space()
     input_h = st.number_input("Enter a step wide h:", value=0.000001)
     create_space()
