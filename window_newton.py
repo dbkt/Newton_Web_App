@@ -14,6 +14,7 @@ def create_space():
     return st.write("")
 
 
+st.set_page_config(page_title="Newton Method")  # '❤')
 st.header("Input area")
 
 # Create 3 columns for the inputs
@@ -21,7 +22,7 @@ col = st.columns(3)
 
 # Inputs from user
 with col[0]:
-    input_function = st.text_input("Enter a function (dependent from x):", value="x^2 - 2x - 2 + cos(x)")
+    input_function = st.text_input("Enter a function (dependent from x):", value="cos(x)")
     create_space()
     input_h = st.number_input("Enter a step wide h:", value=0.000001)
     create_space()
@@ -29,13 +30,13 @@ with col[0]:
 with col[1]:
     input_max_iter = st.number_input("Enter a maximal count of iterations", min_value=1, value=20)
     create_space()
-    input_x0 = st.number_input("Enter start value for x", value=1.0, step=0.1)
+    input_x0 = st.number_input("Enter start value for x", value=0.3, step=0.1)
     create_space()
 
 with col[2]:
     input_d = st.number_input("Enter value for max error", value=0.000001)
     create_space()
-    input_sec = st.number_input("Enter speed of Plot", value=0.3, step=0.1)
+    input_sec = st.number_input("Enter speed of Plot", value=0.7, step=0.1)
     create_space()
 
 
